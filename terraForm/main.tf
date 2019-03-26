@@ -51,10 +51,15 @@ module "route_tables" {
 #   Public_Subnet_id_list = "${data.aws_subnet_ids.Public_Subnet_id_list.ids}"
 # }
 
+module "iam" {
+source = "./modules/IAM"
+
+}
+
 module "eks" {
   source = "./modules/k8s/eks/"
   cluster_name = "${var.aws_cluster_name}"
-  role_arn = "${var.aws_eks_role_arn}"
+  role_arn = "${module.iam.role_arn}"
   Public_Security_Group_id_list = ["${module.security_groups.public_security_groups}"]
   Public_PROD_Subnet_id_list = "${data.aws_subnet_ids.Public_PROD_Subnet_id_list.ids}"
 
