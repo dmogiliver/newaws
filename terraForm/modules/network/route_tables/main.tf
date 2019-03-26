@@ -5,7 +5,7 @@ resource "aws_route_table" "public-rt" {
     gateway_id = "${var.igw_id}"
   }
   tags {
-    Name = "aiops-public-rt"
+    Name = "dmogiliver-public-rt"
   }
 }
 

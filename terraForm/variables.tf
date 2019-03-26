@@ -58,7 +58,7 @@ data "aws_subnet_ids" "Public_PROD_Subnet_id_list" {
 }
 
 variable "aws_cluster_name" {
-  default = "aiops-eks"
+  default = "dmogiliver-eks"
   type    = "string"
 }
 

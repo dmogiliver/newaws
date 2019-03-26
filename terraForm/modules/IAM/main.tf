@@ -1,5 +1,5 @@
 resource "aws_iam_role" "eks_cluster" {
-  name = "aiops_eks_cluster"
+  name = "dmogiliver_eks_cluster"
 
   assume_role_policy = <<POLICY
 {

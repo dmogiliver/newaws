@@ -1,19 +1,19 @@
 resource "aws_security_group" "ssh_in_out" {
   vpc_id = "${var.vpc_id}"
-  name = "aiops-ssh_in_out"
+  name = "dmogiliver-ssh_in_out"
 }
 
 resource "aws_security_group" "flask_in_out" {
   vpc_id = "${var.vpc_id}"
-  name = "aiops-flask_in_out"
+  name = "dmogiliver-flask_in_out"
 }
 
 resource "aws_security_group" "eks_cluster_in_out" {
   vpc_id = "${var.vpc_id}"
-  name = "aiops-eks_cluster"
+  name = "dmogiliver-eks_cluster"
   description = "Cluster communication with worker nodes"
   tags = {
-    Name = "aiops-eks-demo"
+    Name = "dmogiliver-eks-demo"
   }
 }
 
