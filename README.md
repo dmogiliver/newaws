@@ -13,7 +13,7 @@
     * Autoscaling
 
 ## Workflow
-Teraform, Docker, Kubernetes, Jenkins
+Teraform, Docker, EKS, Jenkins
 
 ## Misc.
 
