@@ -41,26 +41,27 @@ module "route_tables" {
   Public_Subnet_id_list = "${data.aws_subnet_ids.Public_Subnet_id_list.ids}"
 }
 
-# module "aws_instance" {
-#   source = "./modules/aws_instance/"
-#   Public_Security_Group_id_list = ["${module.security_groups.public_security_groups}"]
-#   key_name = "${var.ssh_key_name}"
-#   public_key = "${var.ssh_public_key}"
-#   vpc_id = "${module.vpc_network.vpc_id}"
-#   public_subnet_count = "${var.aws_public_subnet_count}"
-#   Public_Subnet_id_list = "${data.aws_subnet_ids.Public_Subnet_id_list.ids}"
-# }
+ module "aws_instance" {
+   source = "./modules/aws_instance/"
+   Public_Security_Group_id_list = ["${module.security_groups.public_security_groups}"]
+   key_name = "${var.ssh_key_name}"
+   public_key = "${var.ssh_public_key}"
+   vpc_id = "${module.vpc_network.vpc_id}"
+   public_subnet_count = "${var.aws_public_subnet_count}"
+   Public_Subnet_id_list = "${data.aws_subnet_ids.Public_Subnet_id_list.ids}"
+ }
 
 module "iam" {
 source = "./modules/IAM"
 
 }
 
-module "eks" {
-  source = "./modules/k8s/eks/"
-  cluster_name = "${var.aws_cluster_name}"
-  role_arn = "${module.iam.role_arn}"
-  Public_Security_Group_id_list = ["${module.security_groups.public_security_groups}"]
-  Public_PROD_Subnet_id_list = "${data.aws_subnet_ids.Public_PROD_Subnet_id_list.ids}"
+#module "eks" {
+ # source = "./modules/k8s/eks/"
+ # source = "./modules/k8s/eks/"
+  #cluster_name = "${var.aws_cluster_name}"
+  #role_arn = "${module.iam.role_arn}"
+  #Public_Security_Group_id_list = ["${module.security_groups.public_security_groups}"]
+  #Public_PROD_Subnet_id_list = "${data.aws_subnet_ids.Public_PROD_Subnet_id_list.ids}"
 
-}
+#}
